@@ -1,0 +1,47 @@
+<%= flash[:notice]  %>
+
+<form action="/search">
+<input name="q" type="text" placeholder="search" aria-label="Search" class="border">
+<button type="submit" class="btn btn-primary"> Search</button>
+</form>
+
+
+<table>
+<thead>
+<tr>
+    <th>ID</th>
+    <th>title</th>
+    <th>category</th>
+    <th>User ID</th>
+    <th>User Name</th>
+
+    
+
+    
+   
+
+
+</tr>
+</thead>
+<tbody>
+     <% @books.each do |book| %>
+   
+<tr>
+    <td><%= book.id %></td>
+    <td><%= book.title %></td>
+    <td><%= book.category %></td>
+    <td><%= book.user.id %></td>
+    <td><%= book.user.name %></td>
+
+
+
+    
+    <% end %>
+</tr>
+</tbody>
+
+    </table>
+
+
+<%= link_to 'create new book' , new_book_path , class:'btn btn-primary btn-lg' %>
+<%= link_to 'View User' , users_path , class:'btn btn-primary btn-lg' %>
